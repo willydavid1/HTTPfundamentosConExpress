@@ -26,6 +26,13 @@ app.get("/autores/:autor", (req, res) => {
   res.send(`Autor ${req.params.autor}, año: ${req.query.año || "no definido como 'Query String' " }`);
 });
 
+// servidor cuando recibas una peticion get en la ruta /json, ejecuta el callback y como respuesta le voy a enviar un json (ese metodo json recibe un objeto)
+app.get("/json", (req, res) => {
+  res.json( {
+    hola: "hola mundo"
+  } )
+})
+
 // ruta que vamos a recibir lo que nos manda el cliente por el metodo POST
 app.post("/responder_encuesta", (req, res) => {
     console.log(req.body) // veo lo que me envia en el body de la peticion
